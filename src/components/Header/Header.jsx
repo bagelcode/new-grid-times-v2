@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Menu, Search, User } from 'react-feather';
 
-import { QUERIES } from '../../constants';
+import { COLORS, QUERIES } from '../../constants';
 
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import Logo from '../Logo';
@@ -29,7 +29,27 @@ const Header = () => {
         </Row>
       </SuperHeader>
       <MainHeader>
+        <DesktopButtons>
+          <ActionGroup>
+            <button>
+              <Search size={24} />
+            </button>
+            <button>
+              <Menu size={24} />
+            </button>
+          </ActionGroup>
+        </DesktopButtons>
         <Logo />
+<SubscribeWrapper>
+<Button>
+  SUBSCRIBE
+</Button>
+<SubLink>
+  Already a subscriber?
+</SubLink>
+
+
+</SubscribeWrapper>
       </MainHeader>
     </header>
   );
@@ -39,6 +59,11 @@ const SuperHeader = styled.div`
   padding: 16px 0;
   background: var(--color-gray-900);
   color: white;
+
+
+   @media ${QUERIES.laptopAndUp} {
+    display: none;
+  }
 `;
 
 const Row = styled(MaxWidthWrapper)`
@@ -65,6 +90,69 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
+
+
+//When I do the below compared to the grid the title is ever so slightly off center. 
+// I have a hard time noticing but I'm sure someone will.
+
+// @media ${QUERIES.laptopAndUp} {
+// justify-content: space-between;
+//     margin-top: 16px;
+//     margin-bottom: 72px;
+// }
+
+
+
+  @media ${QUERIES.laptopAndUp} {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    justify-content: revert;
+    justify-items: start;
+    margin-top: 16px;
+    margin-bottom: 72px;
+  }
+
 `;
+
+const DesktopButtons = styled.div`
+display: none;
+
+@media ${QUERIES.laptopAndUp} {
+display: flex;
+justify-self: flex-start;
+
+}
+`
+
+const SubscribeWrapper = styled.div`
+  display: none;
+
+  @media ${QUERIES.laptopAndUp} {
+  
+  display: revert;
+  position: relative;
+  justify-self: end;
+  }
+
+
+
+`
+
+const SubLink = styled.a`
+
+text-decoration: underline;
+font-style: italic;
+color: ${COLORS.gray[900]};
+font-size: .86rem;
+position: absolute;
+width: 100%;
+text-align: center;
+margin-top: 8px;
+
+
+
+`
+
 
 export default Header;
