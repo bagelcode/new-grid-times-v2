@@ -61,7 +61,7 @@ const Abstract = styled.p`
 
 
 @media ${QUERIES.laptopAndUp}{
- -widbit-line-clamp: 8;
+ -webkit-line-clamp: 8;
 }
 
 `;
