@@ -18,23 +18,15 @@ const OpinionStory = ({ id, title, author, avatar }) => {
 
 const Wrapper = styled.article`
   color: var(--color-gray-900);
-  /* display: flex;
-  flex-direction: column;
 
 
-  @media ${QUERIES.tabletAndUp} {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-  }
-
-  @media ${QUERIES.laptopAndUp} {
-    flex-direction: column;
-  }
-
-    @media ${QUERIES.desktopAndUp} {
+  /* @media ${QUERIES.tabletAndUp} {
+    display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
   } */
+
+
 
 `;
 
